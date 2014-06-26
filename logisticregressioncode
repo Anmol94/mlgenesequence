@@ -1,0 +1,32 @@
+x1=load('xUb')
+y1=load('yUb')
+q1=load('qUb')
+m = length(y1); 
+n = size(x1,2); 
+theta = [0 0 0 0 0 0]';
+alpha = 0.001
+
+for kk = 1:88
+	hx1 = 1.0 ./ (1.0 + exp(x1*theta));
+	J=1/m*sum(-y1'*log(hx1)-(1-y1)'*log(1-hx1));
+        theta = theta + alpha*J;
+end
+
+Ans=q1*theta;
+ 
+function a = sigmoid(z)
+
+a = 1.0 ./ (1.0 + exp(z));
+
+m = length(y1); 
+n = size(x1,2); 
+theta = [0 0 0 0 0 0]';
+alpha = 0.001
+
+for kk = 1:107
+	hx1 = 1.0 ./ (1.0 + exp(x1*theta));
+	J=1/m*sum(-y1'*log(hx1)-(1-y1)'*log(1-hx1));
+        theta = theta + alpha*J;
+end
+
+Ans=q1*theta;

@@ -1,0 +1,33 @@
+x1=load('x1')
+y1=load('y1')
+q1=load('q1')
+m = length(y1); 
+n = size(x1,2); 
+theta_vec= [0 0 0 0 0 0]';
+alpha = 0.0001
+
+for kk = 1:10000
+	h_theta = (x1*theta_vec);
+	h_theta_v = h_theta*ones(1,n);
+	y_v = y1*ones(1,n);
+	theta_vec = theta_vec - alpha*1/m*sum((h_theta_v - y_v).*x1).';
+	
+end
+
+Ans=q1*theta_vec;
+
+2
+x1=load('x1')
+y1=load('y1')
+q1=load('q1')
+
+theta_vec = [0 0 0 0 0 0]';
+theta_vec=pinv(x1'*x1)*x1'*y1;
+ans=q1*theta_vec;
+ 
+theta1=0.5*pinv(x1(:,1)'*x1(:,1))*x1(:,1)'*y1;
+theta2=0.6*pinv(x1[:,1]'*x1[:,1])*x1[:,1]'*y1;
+theta3=0.8*pinv(x1[:,1]'*x1[:,1])*x1[:,1]'*y1;
+theta4=0.8*pinv(x1[:,1]'*x1[:,1])*x1[:,1]'*y1;
+theta5=2.5*pinv(x1[:,1]'*x1[:,1])*x1[:,1]'*y1;
+theta6=2.5*pinv(x1[:,1]'*x1[:,1])*x1[:,1]'*y1;

@@ -1,0 +1,12 @@
+
+
+
+
+theta1=pinv(x1(:,1)'*x1(:,1))*x1(:,1)'*y1;
+theta2=pinv(x1(:,2)'*x1(:,2))*x1(:,2)'*y1;
+theta3=pinv(x1(:,3)'*x1(:,3))*x1(:,3)'*y1;
+theta4=pinv(x1(:,4)'*x1(:,4))*x1(:,4)'*y1;
+theta5=pinv(sqrt(x1(:,5))'*sqrt(x1(:,5)))*sqrt(x1(:,5))'*y1;
+theta6=pinv(ln(x1(:,6))'*ln(x1(:,6)))*ln(x1(:,6))'*y1;
+thetavec=[theta1;theta2;theta3;theta4;theta5;theta6]
+ans=q1*thetavec;
